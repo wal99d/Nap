@@ -28,10 +28,14 @@ func NewAuthBasic(username, password string) *AuthBasic {
 	}
 }
 
-func NewAuthToken(token string) *AuthToken{
-    return &AuthToken{
-        Token: token,
-    }
+func NewAuthToken(token string) *AuthToken {
+	return &AuthToken{
+		Token: token,
+	}
+}
+
+func (t *AuthToken) AuthorizationHeader() string {
+	return fmt.Sprintf("token %s\n", t.Token)
 }
 
 func (a *AuthBasic) AuthorizationHeader() string {

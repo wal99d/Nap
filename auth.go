@@ -35,7 +35,7 @@ func NewAuthToken(token string) *AuthToken {
 }
 
 func (t *AuthToken) AuthorizationHeader() string {
-	return fmt.Sprintf("token %s\n", t.Token)
+	return fmt.Sprintf("token %s", t.Token)
 }
 
 func (a *AuthBasic) AuthorizationHeader() string {

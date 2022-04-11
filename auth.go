@@ -28,6 +28,12 @@ func NewAuthBasic(username, password string) *AuthBasic {
 	}
 }
 
+func NewAuthToken(token string) *AuthToken{
+    return &AuthToken{
+        Token: token,
+    }
+}
+
 func (a *AuthBasic) AuthorizationHeader() string {
 	buffer := &bytes.Buffer{}
 	enc := base64.NewEncoder(base64.URLEncoding, buffer)
